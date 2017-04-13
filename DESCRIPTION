@@ -1,17 +1,25 @@
-Package: sparsity
+Package: sparsio
 Type: Package
-Title: What the package does (short line)
-Version: 1.0
-Date: 2013-06-22
-Author: Felix Riedel
-Maintainer: Felix Riedel <felix.riedel@gmail.com>
-Description: More about what it does (maybe more than one line)
-License: BSD License
+Title: I/O opeations with sparse matrices
+Version: 2.0
+Date: 2017-04-13
+Authors@R: c(person("Dmitriy", "Selivanov", role = c("aut", "cre"),
+    email = "selivanov.dmitriy@gmail.com"), 
+    person("Felix", "Riedel", role = c("aut"),
+    email = "felix.riedel@gmail.com"))
+Maintainer: Dmitriy Selivanov <selivanov.dmitriy@gmail.com>
+Encoding: UTF-8
+Description: Fast SVMlight reader and writer.
+License: BSD_3_clause + file LICENSE
 Depends:
-    Rcpp (>= 0.10.3),
-    RcppEigen (>= 0.3.1)
-LinkingTo: Rcpp, RcppEigen
-Collate:
-    'liblinear.r'
-    'RcppExports.R'
-    'sparsity-io.R'
+    R (>= 3.1.0),
+    methods
+Imports:
+    Rcpp (>= 0.12.0), 
+    Matrix (>= 1.1)
+LinkingTo: Rcpp
+Suggests:
+    testthat
+URL: https://github.com/dselivanov/sparsio
+BugReports: https://github.com/dselivanov/sparsio/issues
+RoxygenNote: 5.0.1

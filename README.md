@@ -1,22 +1,30 @@
-# sparsity
+## sparsio
 
-*sparsity* is an R package with functions for sparse matrices. 
+**sparsio** is an R package for **I/O** operations with sparse matrices. At the moment it provides **fast** `svmlight` reader and writer.
 
-## Why use sparsity
+* `read_svmlight()`
+* `write_svmlight()`
 
-### Reading and writing SVMlight format
+**The only dependency is `Rcpp`**
 
-`read.svmlight()` and `write.svmlight()` read/write sparse matrices in SVMlight format.
-You will find other functions for this on the internet, but the ones I found were either slow or handled only dense (=normal) matrices.
+Package is not on CRAN yet, so you can install it with `devtools`:
+```r
+devtools::install_github("dselivanov/sparsio")
+```
 
-### LIBLINEAR integration
-
-The [LiblineaR CRAN package](http://cran.r-project.org/web/packages/LiblineaR/) provides an R interface to the [LIBLINEAR library](http://www.csie.ntu.edu.tw/~cjlin/liblinear/), but uses a dense representation. *sparsity*'s functions use sparse matrices (from the Matrix package) instead. In addition it gives you a pointer to LIBLINEAR's internal representation of the data, which means you can train multiple models without the overhead of transforming the input data.
-
-## Installation
+## Quick reference
 
 ```r
-# install.packages("devtools")
-library(devtools)
-install_github("sparsity", "felixr")
+library(Matrix)
+library(sparsio)
+i = 1:8
+j = 1:8
+v = rep(2, 8)
+x = sparseMatrix(i, j, x = v)
+y = sample(c(0, 1), nrow(x), replace = TRUE)
+f = tempfile(fileext = ".svmlight")
+write_svmlight(x, y, f)
+x2 = read_svmlight(f, type = "CsparseMatrix")
+identical(x2$x, x)
+identical(x2$y, y)
 ```
