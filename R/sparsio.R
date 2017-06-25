@@ -5,7 +5,8 @@
 #' 
 #' @name svmlight
 #' @title Fast svmlight reader and writer
-#' @description Reads and writes svmlight files.
+#' @description Reads and writes svmlight files. 
+#' Notice that current implementation \bold{can't handle comments in svmlight files} during reading.
 #' @param x input sparse matrix. Should inherit from \code{Matrix::sparseMatrix}.
 #' @param y target values. Labels must be an integer or numeric of the same length as number of rows in \code{x}.
 #' @param file string, path to svmlight file

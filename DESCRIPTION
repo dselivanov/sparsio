@@ -1,15 +1,18 @@
 Package: sparsio
 Type: Package
 Title: I/O Operations with Sparse Matrices
-Version: 1.0
-Date: 2017-06-25
+Version: 1.0.0
+Date: 2017-06-28
 Authors@R: c(person("Dmitriy", "Selivanov", role = c("aut", "cre"),
     email = "selivanov.dmitriy@gmail.com"), 
     person("Felix", "Riedel", role = c("aut"),
     email = "felix.riedel@gmail.com"))
 Maintainer: Dmitriy Selivanov <selivanov.dmitriy@gmail.com>
 Encoding: UTF-8
-Description: Fast SVMlight reader and writer.
+Description: Fast 'SVMlight' reader and writer. 
+    'SVMlight' is most commonly used format for storing 
+    sparse matrices (possibly with some target variable) on disk.
+    For additional information about 'SVMlight' format see <http://svmlight.joachims.org/>.
 License: GPL (>= 2) | file LICENSE
 Depends:
     R (>= 3.1.0),

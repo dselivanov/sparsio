@@ -30,7 +30,8 @@ so function can override inherited from data value.}
 \item{y}{target values. Labels must be an integer or numeric of the same length as number of rows in \code{x}.}
 }
 \description{
-Reads and writes svmlight files.
+Reads and writes svmlight files. 
+Notice that current implementation \bold{can't handle comments in svmlight files} during reading.
 }
 \examples{
 library(Matrix)
