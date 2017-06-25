@@ -30,3 +30,14 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+
+static const R_CallMethodDef CallEntries[] = {
+    {"sparsio_read_svmlight_cpp", (DL_FUNC) &sparsio_read_svmlight_cpp, 2},
+    {"sparsio_write_svmlight_cpp", (DL_FUNC) &sparsio_write_svmlight_cpp, 4},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_sparsio(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
+}

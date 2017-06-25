@@ -14,7 +14,7 @@
 #' and then coerced with \code{as()} to target type.
 #' This is because \code{smvlight} format is essentially equal to \code{CSR} sparse matrix format.
 #' @param zero_based \code{logical}, whether column indices in file are 0-based (\code{TRUE}) or 1-based (\code{FALSE}).
-#' @param ncol number of columns in target matrix. \code{NULL} means that number of coluns will be determined 
+#' @param ncol number of columns in target matrix. \code{NULL} means that number of columns will be determined 
 #' from file (as a maximum index). However it is possible that user expects matrix with a predefined number of columns, 
 #' so function can override inherited from data value.
 #' @examples 

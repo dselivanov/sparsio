@@ -1,3 +1,3 @@
 library(testthat)
 library(sparsio)
-test_package("sparsio")
+test_check("sparsio")
