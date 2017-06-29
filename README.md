@@ -1,30 +1,38 @@
 ## sparsio
 
-**sparsio** is an R package for **I/O** operations with sparse matrices. At the moment it provides **fast** `svmlight` reader and writer.
+**sparsio** is a small (the only dependency is `Rcpp`) R package for **spars**e matrices **I**nput/**O**utput. It provides **fast** `svmlight` reader and writer.
 
 * `read_svmlight()`
 * `write_svmlight()`
-
-**The only dependency is `Rcpp`**
-
-Package is not on CRAN yet, so you can install it with `devtools`:
-```r
-devtools::install_github("dselivanov/sparsio")
-```
 
 ## Quick reference
 
 ```r
 library(Matrix)
 library(sparsio)
-i = 1:8
-j = 1:8
-v = rep(2, 8)
-x = sparseMatrix(i, j, x = v)
+N = 1e8
+i = sample(1e5, N, T)
+j = sample(1e5, N, T)
+vals = runif(N)
+x = sparseMatrix(i, j, x = vals)
+print(object.size(x), units = "Gb")
+# 1.1 Gb
+
 y = sample(c(0, 1), nrow(x), replace = TRUE)
 f = tempfile(fileext = ".svmlight")
-write_svmlight(x, y, f)
-x2 = read_svmlight(f, type = "CsparseMatrix")
-identical(x2$x, x)
-identical(x2$y, y)
+system.time(write_svmlight(x, y, f))
+# user  system elapsed 
+# 68.014   2.785  70.899
+
+file.size(f)/1e9
+# 1.48135 Gb
+
+system.time(x2 <- read_svmlight(f, type = "CsparseMatrix"))
+# user  system elapsed 
+# 55.021   2.803  57.892
+
+all.equal(x2$x, x)
+# "Mean relative difference: 4.636406e-07"
+all.equal(x2$y, y)
+# TRUE
 ```
