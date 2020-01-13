@@ -2,10 +2,10 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 read_svmlight_cpp <- function(filename, zero_based = 1L) {
-    .Call('sparsio_read_svmlight_cpp', PACKAGE = 'sparsio', filename, zero_based)
+    .Call(`_sparsio_read_svmlight_cpp`, filename, zero_based)
 }
 
 write_svmlight_cpp <- function(x, y, filename, zero_based = 1L) {
-    invisible(.Call('sparsio_write_svmlight_cpp', PACKAGE = 'sparsio', x, y, filename, zero_based))
+    invisible(.Call(`_sparsio_write_svmlight_cpp`, x, y, filename, zero_based))
 }
 

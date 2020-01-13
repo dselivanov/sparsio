@@ -39,19 +39,20 @@ List read_svmlight_cpp(Rcpp::String filename, int zero_based = 1) {
       nrow++;
     }
     
+    int id;
+    double value;
     // foreach token (id:value) in line 
     while (!tokenStream.eof()) {
-        std::getline(tokenStream, token, ' ');
-        int id;
-        double value;
+      std::getline(tokenStream, token, ' ');
+      if (!token.empty()) {
         sscanf(token.c_str(), "%d:%lf", &id, &value);
         // case when indices start from 1
         id = id - index_start_with;
         ncol = std::max(id, ncol); 
         x_values.push_back(value);
-        
         col_indices.push_back(id);
         pointer_counter++;
+      }
     }
   }
   ncol++;

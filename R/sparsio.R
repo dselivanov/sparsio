@@ -1,4 +1,4 @@
-#' @useDynLib sparsio
+#' @useDynLib sparsio, .registration = TRUE
 #' @import Matrix
 #' @import Rcpp
 #' @import methods

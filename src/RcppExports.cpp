@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // read_svmlight_cpp
 List read_svmlight_cpp(Rcpp::String filename, int zero_based);
-RcppExport SEXP sparsio_read_svmlight_cpp(SEXP filenameSEXP, SEXP zero_basedSEXP) {
+RcppExport SEXP _sparsio_read_svmlight_cpp(SEXP filenameSEXP, SEXP zero_basedSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -19,7 +19,7 @@ END_RCPP
 }
 // write_svmlight_cpp
 void write_svmlight_cpp(S4 x, NumericVector y, Rcpp::String filename, int zero_based);
-RcppExport SEXP sparsio_write_svmlight_cpp(SEXP xSEXP, SEXP ySEXP, SEXP filenameSEXP, SEXP zero_basedSEXP) {
+RcppExport SEXP _sparsio_write_svmlight_cpp(SEXP xSEXP, SEXP ySEXP, SEXP filenameSEXP, SEXP zero_basedSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< S4 >::type x(xSEXP);
@@ -32,8 +32,8 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"sparsio_read_svmlight_cpp", (DL_FUNC) &sparsio_read_svmlight_cpp, 2},
-    {"sparsio_write_svmlight_cpp", (DL_FUNC) &sparsio_write_svmlight_cpp, 4},
+    {"_sparsio_read_svmlight_cpp", (DL_FUNC) &_sparsio_read_svmlight_cpp, 2},
+    {"_sparsio_write_svmlight_cpp", (DL_FUNC) &_sparsio_write_svmlight_cpp, 4},
     {NULL, NULL, 0}
 };
 
